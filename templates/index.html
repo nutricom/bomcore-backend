@@ -1,0 +1,64 @@
+index.html has this : <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BomCore Contact</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 2rem;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    form {
+      max-width: 500px;
+      margin: auto;
+      padding: 1.5rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    label {
+      display: block;
+      margin-top: 1rem;
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 0.75rem;
+      margin-top: 0.25rem;
+      font-size: 1rem;
+    }
+    button {
+      margin-top: 1.5rem;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h2>Contact BomCore</h2>
+<<form action="https://formspree.io/f/mkgbnelg" method="POST">
+  <input type="hidden" name="_redirect" value="/thanks">
+
+  <label for="email">Your Email:</label>
+  <input type="email" name="email" id="email" required>
+
+  <label for="part">Part Name / SKU:</label>
+  <input type="text" name="part" id="part" required>
+
+  <label for="quantity">Quantity Needed:</label>
+  <input type="number" name="quantity" id="quantity" required>
+
+  <label for="spec">Technical Specs / Notes:</label>
+  <textarea name="spec" id="spec" rows="4"></textarea>
+
+  <button type="submit">Request Quote</button>
+</form>
+
