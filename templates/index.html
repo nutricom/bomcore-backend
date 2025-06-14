@@ -1,9 +1,8 @@
-index.html has this : <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>BomCore Contact</title>
+  <title>BomCore RFQ Form</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -43,22 +42,21 @@ index.html has this : <!DOCTYPE html>
   </style>
 </head>
 <body>
-  <h2>Contact BomCore</h2>
-<<form action="https://formspree.io/f/mkgbnelg" method="POST">
-  <input type="hidden" name="_redirect" value="/thanks">
+  <h2>Submit RFQ</h2>
+  <form action="/submit" method="POST">
+    <label for="email">Email:</label>
+    <input name="email" type="email" required>
 
-  <label for="email">Your Email:</label>
-  <input type="email" name="email" id="email" required>
+    <label for="part">Part Name:</label>
+    <input name="part" type="text" required>
 
-  <label for="part">Part Name / SKU:</label>
-  <input type="text" name="part" id="part" required>
+    <label for="quantity">Quantity:</label>
+    <input name="quantity" type="number" required>
 
-  <label for="quantity">Quantity Needed:</label>
-  <input type="number" name="quantity" id="quantity" required>
+    <label for="spec">Specification:</label>
+    <textarea name="spec" rows="4" required></textarea>
 
-  <label for="spec">Technical Specs / Notes:</label>
-  <textarea name="spec" id="spec" rows="4"></textarea>
-
-  <button type="submit">Request Quote</button>
-</form>
-
+    <button type="submit">Preview RFQ</button>
+  </form>
+</body>
+</html>

@@ -19,7 +19,7 @@
     },
     {
       "name": "Python: Flask",
-      "type": "python",
+      "type": "debugpy",
       "request": "launch",
       "program": "${workspaceFolder}/app.py",
       "console": "integratedTerminal",
@@ -33,8 +33,7 @@
         "--no-reload",
         "--host=0.0.0.0",
         "--port=5050"
-      ],
-      "jinja": True
+      ]
     }
   ]
 }

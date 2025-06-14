@@ -22,20 +22,15 @@
     }
   ]
 }
-from flask import Flask, render_template
+
+from flask import Flask, render_template, request, redirect, url_for, session
 
 app = Flask(__name__)
+app.secret_key = "temporary_secret"  # Needed for session
 
 @app.route("/")
 def home():
     return render_template("index.html")
-
-@app.route("/healthz")
-def health():
-    return {"status": "ok"}
-from flask import request, redirect, url_for, session
-
-app.secret_key = "temporary_secret"  # Needed for session
 
 @app.route("/submit", methods=["POST"])
 def submit():
@@ -56,9 +51,15 @@ def preview():
         "spec": "n/a"
     })
     return render_template("preview.html", rfq=rfq)
+
 @app.route("/thanks")
 def thanks():
     return render_template("thanks.html")
 
+@app.route("/healthz")
+def health():
+    return {"status": "ok"}
+
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5050)
+
