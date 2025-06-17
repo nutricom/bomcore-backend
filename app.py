@@ -18,19 +18,24 @@
         "--host=0.0.0.0",
         "--port=5050"
       ],
-      "jinja": true
+      "jinja": True
     }
   ]
 }
-
-from flask import Flask, render_template, request, redirect, url_for, session
+from flask import Flask, render_template
 
 app = Flask(__name__)
-app.secret_key = "temporary_secret"  # Needed for session
 
 @app.route("/")
 def home():
     return render_template("index.html")
+
+@app.route("/healthz")
+def health():
+    return {"status": "ok"}
+from flask import request, redirect, url_for, session
+
+app.secret_key = "temporary_secret"  # Needed for session
 
 @app.route("/submit", methods=["POST"])
 def submit():
