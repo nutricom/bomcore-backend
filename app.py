@@ -1,41 +1,11 @@
-{
-  "version": "0.2.0",
-  "configurations": [
-    {
-      "name": "Python: Flask",
-      "type": "python",
-      "request": "launch",
-      "program": "${workspaceFolder}/app.py",
-      "console": "integratedTerminal",
-      "env": {
-        "FLASK_APP": "app.py",
-        "FLASK_ENV": "development"
-      },
-      "args": [
-        "run",
-        "--no-debugger",
-        "--no-reload",
-        "--host=0.0.0.0",
-        "--port=5050"
-      ],
-      "jinja": True
-    }
-  ]
-}
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for, session
 
 app = Flask(__name__)
+app.secret_key = "temporary_secret"  # Needed for session management
 
 @app.route("/")
 def home():
     return render_template("index.html")
-
-@app.route("/healthz")
-def health():
-    return {"status": "ok"}
-from flask import request, redirect, url_for, session
-
-app.secret_key = "temporary_secret"  # Needed for session
 
 @app.route("/submit", methods=["POST"])
 def submit():
@@ -67,4 +37,3 @@ def health():
 
 if __name__ == "__main__":
     app.run(debug=True, host="0.0.0.0", port=5050)
-
